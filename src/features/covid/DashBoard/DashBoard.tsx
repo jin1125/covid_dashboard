@@ -33,11 +33,46 @@ const DashBoard:React.FC = () => {
 
   const data = useSelector(selectData);
 
+  useEffect(() => {
+    dispatch(fetchAsyncGet());
+    dispatch(fetchAsyncGetDaily());
+  }, [dispatch]);
+
   return (
     <div>
+      <AppBar position="absolute">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+          新型コロナウイルス状況
+          </Typography>
+          {data && (
+            <Typography variant="body1">
+              {new Date(data.lastUpdate).toDateString()}
+            </Typography>
+          )}
+        </Toolbar>
+      </AppBar>
       
+      <Container className={classes.content}>
+        <div className={styles.container}>
+          <SwithCountry />
+        </div>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={7}>
+            <Chart />
+          </Grid>
+
+          <Grid item xs={12} md={5}>
+            <PieChart />
+          </Grid>
+
+          <Grid item xs={12} md={12}>
+            <Cards />
+          </Grid>
+        </Grid>
+      </Container>
     </div>
-  )
+  );
 }
 
 export default DashBoard

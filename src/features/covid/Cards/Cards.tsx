@@ -33,7 +33,7 @@ const Cards:React.FC = () => {
           </CardContent>
         </Grid>
 
-        <Grid item xs={12} md={3} component={Card} className={styles.recovered}>
+        {/* <Grid item xs={12} md={3} component={Card} className={styles.recovered}>
           <CardContent>
             <Typography color="textSecondary" gutterBottom>
               <AiFillLike /> 回復した人
@@ -47,7 +47,7 @@ const Cards:React.FC = () => {
               />
             </Typography>
           </CardContent>
-        </Grid>
+        </Grid> */}
 
         <Grid item xs={12} md={3} component={Card} className={styles.deaths}>
           <CardContent>
